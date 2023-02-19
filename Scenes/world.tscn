@@ -708,6 +708,8 @@ y_sort_enabled = true
 [node name="Player" parent="YSort" instance=ExtResource("1_cexyo")]
 position = Vector2(288, 168)
 
+[node name="Camera2D" type="Camera2D" parent="YSort/Player"]
+
 [node name="Wall" parent="YSort" instance=ExtResource("2_dvyuv")]
 position = Vector2(160, 96)
 
