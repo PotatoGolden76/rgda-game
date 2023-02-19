@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dr87sygi4uff2"]
+[gd_scene load_steps=17 format=3 uid="uid://dr87sygi4uff2"]
 
 [ext_resource type="Texture2D" uid="uid://cbn7k1is0u27l" path="res://Environment/_tempTileset/TX Tileset Grass.png" id="1_bj1nm"]
 [ext_resource type="PackedScene" uid="uid://c4w7dteo26vpo" path="res://Scenes/player.tscn" id="1_cexyo"]
@@ -689,6 +689,12 @@ terrain_set_0/terrain_0/name = "Stone"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/3 = SubResource("TileSetAtlasSource_xmco5")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hbisw"]
+size = Vector2(960, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2pl8d"]
+size = Vector2(16, 640)
+
 [node name="World" type="Node2D"]
 
 [node name="Grass BG" type="TileMap" parent="."]
@@ -736,3 +742,21 @@ position = Vector2(456, 120)
 
 [node name="Wall5" parent="YSort" instance=ExtResource("2_dvyuv")]
 position = Vector2(456, 264)
+
+[node name="Bounds" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(288, -200)
+shape = SubResource("RectangleShape2D_hbisw")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(-199.75, 128)
+shape = SubResource("RectangleShape2D_2pl8d")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(288, 456)
+shape = SubResource("RectangleShape2D_hbisw")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(776, 128)
+shape = SubResource("RectangleShape2D_2pl8d")
