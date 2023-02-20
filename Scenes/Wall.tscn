@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cde1h37a8ikyw"]
+
+[ext_resource type="Texture2D" uid="uid://bxvnr4ysmyqnk" path="res://Environment/_tempWall.png" id="1_3y7yq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2e8r2"]
+radius = 8.0
+height = 24.0
+
+[node name="Wall" type="StaticBody2D"]
+
+[node name="TempWall" type="Sprite2D" parent="."]
+texture = ExtResource("1_3y7yq")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_2e8r2")
+metadata/_edit_group_ = true

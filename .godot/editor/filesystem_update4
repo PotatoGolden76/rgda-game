@@ -1,0 +1,5 @@
+res://Scenes/world.tscn
+res://Player/Player.gd
+res://README.md
+res://Scenes/player.tscn
+res://Scenes/Wall.tscn
