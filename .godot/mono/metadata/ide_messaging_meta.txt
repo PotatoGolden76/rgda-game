@@ -1,2 +1,2 @@
-﻿51971
-E:/Godot_v4.0-rc2_mono_win64/Godot_v4.0-rc2_mono_win64.exe
+﻿51965
+F:/Godot 4/Godot_v4.0-rc2_mono_win64.exe
