@@ -724,7 +724,7 @@ editor_draw_limits = true
 y_sort_enabled = true
 
 [node name="Spider" parent="YSort" instance=ExtResource("3_p010n")]
-position = Vector2(96, 160)
+position = Vector2(24, 176)
 scale = Vector2(2, 2)
 
 [node name="Player" parent="YSort" instance=ExtResource("1_cexyo")]
@@ -747,6 +747,18 @@ position = Vector2(456, 120)
 
 [node name="Wall5" parent="YSort" instance=ExtResource("2_dvyuv")]
 position = Vector2(456, 264)
+
+[node name="Spider2" parent="YSort" instance=ExtResource("3_p010n")]
+position = Vector2(496, 56)
+scale = Vector2(2, 2)
+
+[node name="Spider3" parent="YSort" instance=ExtResource("3_p010n")]
+position = Vector2(240, -16)
+scale = Vector2(2, 2)
+
+[node name="Spider4" parent="YSort" instance=ExtResource("3_p010n")]
+position = Vector2(512, 280)
+scale = Vector2(2, 2)
 
 [node name="Bounds" type="StaticBody2D" parent="."]
 

@@ -1,11 +1,10 @@
-res://Scenes/spider.tscn
-res://Scenes/player.tscn
 res://Scenes/world.tscn
+res://Enemy/WanderController.gd
 res://Scenes/Wall.tscn
-res://Overlap/Hitbox.tscn
-res://Overlap/Hurtbox.tscn
+res://Enemy/WanderController.tscn
+res://Scenes/player.tscn
+res://Scenes/spider.tscn
 res://Enemy/_tempSpider/spider.gd
-res://Player/Player.gd
 res://Environment/Wall.gd
 res://Enemy/player_detection_zone.gd
-res://Enemy/player_detection_zone.tscn
+res://Projectiles/_tempBullet/Bullet.tscn
