@@ -32,6 +32,8 @@ var animationState = animationTree.get("parameters/playback")
 var playerDetectionZone = $PlayerDetectionZone
 @onready
 var wanderController = $WanderController
+@onready
+var attackController = $AttackController
 
 func _physics_process(delta):
 	velocity = knockback.move_toward(Vector2.ZERO, kb_friction * delta)
@@ -82,6 +84,11 @@ func _physics_process(delta):
 				animationState.travel("Walk")
 				
 				velocity = velocity.move_toward(player_direction * CHASE_MAX_SPEED, ACCELERATION * delta)
+				
+				attackController.set_target(player.global_position)
+				
+				if attackController.attackDone:
+					attackController.burst_attack(3, 1, 0.2, 0)
 				
 			else:
 				state = IDLE

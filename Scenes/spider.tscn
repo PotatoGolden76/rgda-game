@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://devyfl4lqc1f3"]
+[gd_scene load_steps=34 format=3 uid="uid://devyfl4lqc1f3"]
 
 [ext_resource type="Script" path="res://Enemy/_tempSpider/spider.gd" id="1_dw5bl"]
 [ext_resource type="Texture2D" uid="uid://dkg8hbdt7db4y" path="res://Enemy/_tempShadow.png" id="1_ff7es"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cn8qgbs33xrk3" path="res://Overlap/Hurtbox.tscn" id="3_t2u8j"]
 [ext_resource type="PackedScene" uid="uid://orqaxby5dny4" path="res://Enemy/player_detection_zone.tscn" id="5_rcbkl"]
 [ext_resource type="PackedScene" uid="uid://blal8w5nlkync" path="res://Enemy/WanderController.tscn" id="6_po8u1"]
+[ext_resource type="PackedScene" uid="uid://m4plp0p7bul0" path="res://Enemy/AttackController.tscn" id="7_kd7h2"]
 
 [sub_resource type="Animation" id="Animation_78y51"]
 resource_name = "Idle Down"
@@ -259,6 +260,8 @@ shape = SubResource("CircleShape2D_fortt")
 debug_color = Color(0.980392, 0.145098, 0, 0.129412)
 
 [node name="WanderController" parent="." instance=ExtResource("6_po8u1")]
+
+[node name="AttackController" parent="." instance=ExtResource("7_kd7h2")]
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 

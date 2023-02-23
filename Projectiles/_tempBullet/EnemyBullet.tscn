@@ -1,0 +1,71 @@
+[gd_scene load_steps=11 format=3 uid="uid://ck7v86lb82hon"]
+
+[ext_resource type="PackedScene" uid="uid://cgt1nf5dr404j" path="res://Overlap/Hitbox.tscn" id="1_8j1po"]
+[ext_resource type="Texture2D" uid="uid://bcxacnaed5k55" path="res://Projectiles/_tempBullet/_tempBullet1.png" id="2_cpife"]
+[ext_resource type="Script" path="res://Projectiles/_tempBullet/EnemyBullet.gd" id="2_l80gt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3r61y"]
+atlas = ExtResource("2_cpife")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1dto"]
+atlas = ExtResource("2_cpife")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0ogr"]
+atlas = ExtResource("2_cpife")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8c2v"]
+atlas = ExtResource("2_cpife")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apu3h"]
+atlas = ExtResource("2_cpife")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w3hhw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3r61y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1dto")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0ogr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8c2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apu3h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_shwnv"]
+radius = 8.0
+
+[node name="Hitbox" groups=["Projectiles"] instance=ExtResource("1_8j1po")]
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("2_l80gt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_w3hhw")
+frame = 2
+frame_progress = 0.434461
+
+[node name="CollisionShape2D" parent="." index="1"]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("CircleShape2D_shwnv")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." index="2"]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

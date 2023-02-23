@@ -8,3 +8,7 @@ res://Enemy/_tempSpider/spider.gd
 res://Environment/Wall.gd
 res://Enemy/player_detection_zone.gd
 res://Projectiles/_tempBullet/Bullet.tscn
+res://Projectiles/_tempBullet/EnemyBullet.tscn
+res://Projectiles/_tempBullet/EnemyBullet.gd
+res://Enemy/AttackController.tscn
+res://Enemy/AttackController.gd
