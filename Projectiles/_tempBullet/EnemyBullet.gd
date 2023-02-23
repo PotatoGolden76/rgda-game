@@ -3,6 +3,9 @@ extends Area2D
 @export
 var SPEED:int = 300
 
+func set_speed(new_speed):
+	SPEED = new_speed
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	var direction = Vector2.RIGHT.rotated(rotation)

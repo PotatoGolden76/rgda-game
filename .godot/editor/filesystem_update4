@@ -12,3 +12,4 @@ res://Projectiles/_tempBullet/EnemyBullet.tscn
 res://Projectiles/_tempBullet/EnemyBullet.gd
 res://Enemy/AttackController.tscn
 res://Enemy/AttackController.gd
+res://Player/Player.gd

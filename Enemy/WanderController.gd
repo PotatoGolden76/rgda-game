@@ -12,6 +12,7 @@ var timer = $Timer
 var wander_leniency:float = 0.5;
 
 func update_target_position():
+	# generate a new random wander position within a threshold
 	var target_vector = Vector2.ZERO
 	
 	while(target_vector.length() < 32): 
@@ -20,7 +21,7 @@ func update_target_position():
 	target_position = start_position + target_vector
 
 func _on_timer_timeout():
-	update_target_position() # Replace with function body.
+	update_target_position()
 
 func get_time_left():
 	return timer.time_left
