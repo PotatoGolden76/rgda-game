@@ -1,2 +1,5 @@
+res://Enemy
+res://Projectiles/_tempBullet
+res://Overlap
+res://Enemy/_tempSpider
 res://Scenes
-res://Player
