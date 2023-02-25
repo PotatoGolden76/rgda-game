@@ -1,11 +1,13 @@
+Node2D
+Label
 CollisionShape2D
+Area2D
+Sprite2D
 StaticBody2D
 RemoteTransform2D
 Camera2D
 AudioStreamPlayer
 TileMap
-Sprite2D
-Node2D
 AnimationTree
 AnimationPlayer
 CharacterBody2D

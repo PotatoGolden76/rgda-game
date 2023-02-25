@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://dr87sygi4uff2"]
+[gd_scene load_steps=18 format=3 uid="uid://dr87sygi4uff2"]
 
 [ext_resource type="Texture2D" uid="uid://cbn7k1is0u27l" path="res://Environment/_tempTileset/TX Tileset Grass.png" id="1_bj1nm"]
 [ext_resource type="PackedScene" uid="uid://c4w7dteo26vpo" path="res://Scenes/player.tscn" id="1_cexyo"]
 [ext_resource type="PackedScene" uid="uid://cde1h37a8ikyw" path="res://Scenes/Wall.tscn" id="2_dvyuv"]
 [ext_resource type="Texture2D" uid="uid://6nkecr1gsq70" path="res://Environment/_tempTileset/TX Tileset Stone Ground.png" id="2_svdgq"]
+[ext_resource type="Script" path="res://Scenes/Drops_TEST.gd" id="5_n6tgx"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_bsodx"]
 tile_data = PackedInt32Array(0, 524288, 0, 65536, 524288, 1, 1, 589824, 0, 65537, 589824, 1)
@@ -742,6 +743,9 @@ position = Vector2(456, 120)
 
 [node name="Wall5" parent="YSort" instance=ExtResource("2_dvyuv")]
 position = Vector2(456, 264)
+
+[node name="Drops_TEST" type="Node2D" parent="YSort"]
+script = ExtResource("5_n6tgx")
 
 [node name="Bounds" type="StaticBody2D" parent="."]
 

@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwqd2jw5vhulc"]
+
+[ext_resource type="Script" path="res://Items/DroppedItem.gd" id="1_bv060"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uqn5k"]
+size = Vector2(16, 16)
+
+[node name="DroppedItem" type="Area2D"]
+script = ExtResource("1_bv060")
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_uqn5k")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_left = -32.0
+offset_top = -40.0
+offset_right = 36.0
+offset_bottom = -14.0
+text = "[ERROR]"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
