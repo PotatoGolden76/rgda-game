@@ -1,12 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://cde1h37a8ikyw"]
+[gd_scene load_steps=4 format=3 uid="uid://cde1h37a8ikyw"]
 
 [ext_resource type="Texture2D" uid="uid://bxvnr4ysmyqnk" path="res://Environment/_tempWall.png" id="1_3y7yq"]
+[ext_resource type="Script" path="res://Environment/Wall.gd" id="1_nknvq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2e8r2"]
 radius = 8.0
 height = 24.0
 
 [node name="Wall" type="StaticBody2D"]
+collision_mask = 0
+script = ExtResource("1_nknvq")
 
 [node name="TempWall" type="Sprite2D" parent="."]
 texture = ExtResource("1_3y7yq")
