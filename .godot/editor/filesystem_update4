@@ -1,3 +1,9 @@
 res://Scenes/world.tscn
+res://Player/Inventory/Inventory.gd
+res://Items/DroppedItem.tscn
+res://Items/TestItem.tres
+res://Items/ItemRegistry.gd
+res://Items/Resources/TestItem_2.tres
+res://Items/DroppedItem.gd
+res://Scenes/Drops_TEST.gd
 res://Scenes/player.tscn
-res://Scenes/Wall.tscn
