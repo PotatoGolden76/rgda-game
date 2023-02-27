@@ -1,9 +1,11 @@
-[gd_scene load_steps=24 format=3 uid="uid://c4w7dteo26vpo"]
+[gd_scene load_steps=27 format=3 uid="uid://c4w7dteo26vpo"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_sjwxk"]
 [ext_resource type="Texture2D" uid="uid://cw6g1y2b7622r" path="res://Player/_tempSpritesheet.png" id="2_f6qyg"]
 [ext_resource type="AudioStream" uid="uid://bmio6bonkf1wf" path="res://SFX/running-in-grass-6237.mp3" id="3_2jicg"]
 [ext_resource type="PackedScene" uid="uid://cgt1nf5dr404j" path="res://Overlap/Hitbox.tscn" id="4_155eh"]
+[ext_resource type="PackedScene" uid="uid://cn8qgbs33xrk3" path="res://Overlap/Hurtbox.tscn" id="5_nojkx"]
+[ext_resource type="Script" path="res://Player/PlayerStats.gd" id="6_jko07"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nb1l7"]
 radius = 6.0
@@ -168,6 +170,10 @@ graph_offset = Vector2(8, -51.057)
 radius = 8.0
 height = 32.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dlk84"]
+radius = 8.0
+height = 16.0
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_sjwxk")
@@ -208,4 +214,18 @@ collision_mask = 9
 scale = Vector2(0.757, 0.757)
 shape = SubResource("CapsuleShape2D_238b6")
 
+[node name="Hurtbox" parent="." instance=ExtResource("5_nojkx")]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+shape = SubResource("CapsuleShape2D_dlk84")
+debug_color = Color(0.568627, 0.388235, 1, 0.419608)
+
+[node name="PlayerStats" type="Node2D" parent="."]
+script = ExtResource("6_jko07")
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+
 [editable path="Hitbox"]
+[editable path="Hurtbox"]

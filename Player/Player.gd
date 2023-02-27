@@ -13,7 +13,15 @@ var animationPlayer:AnimationPlayer = $AnimationPlayer
 var animationTree:AnimationTree = $AnimationTree
 @onready
 var animationState = animationTree.get("parameters/playback")
+@onready
+var stats = $PlayerStats
 
+func _ready():
+	stats.no_health.connect(_on_player_no_health)
+	print("Player health = " + str(stats.health))
+
+func _on_player_no_health():
+	queue_free()
 
 func _physics_process(delta):
 	# input + physics logic
@@ -37,3 +45,8 @@ func _physics_process(delta):
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta) 
 	
 	move_and_slide()
+
+
+func _on_hurtbox_area_entered(area):
+	stats.health -= 1
+	print("Player health = " + str(stats.health))
