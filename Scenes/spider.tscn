@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://devyfl4lqc1f3"]
+[gd_scene load_steps=37 format=3 uid="uid://devyfl4lqc1f3"]
 
 [ext_resource type="Script" path="res://Enemy/_tempSpider/spider.gd" id="1_dw5bl"]
 [ext_resource type="Texture2D" uid="uid://dkg8hbdt7db4y" path="res://Enemy/_tempShadow.png" id="1_ff7es"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://orqaxby5dny4" path="res://Enemy/player_detection_zone.tscn" id="5_rcbkl"]
 [ext_resource type="PackedScene" uid="uid://blal8w5nlkync" path="res://Enemy/WanderController.tscn" id="6_po8u1"]
 [ext_resource type="PackedScene" uid="uid://m4plp0p7bul0" path="res://Enemy/AttackController.tscn" id="7_kd7h2"]
+[ext_resource type="PackedScene" uid="uid://cgt1nf5dr404j" path="res://Overlap/Hitbox.tscn" id="8_unouq"]
+[ext_resource type="PackedScene" uid="uid://dor27ntcdv1q" path="res://Enemy/EnemyStats.tscn" id="9_gw5f7"]
 
 [sub_resource type="Animation" id="Animation_78y51"]
 resource_name = "Idle Down"
@@ -210,6 +212,10 @@ size = Vector2(16, 16)
 [sub_resource type="CircleShape2D" id="CircleShape2D_fortt"]
 radius = 64.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0jb8c"]
+radius = 8.0
+height = 16.0
+
 [node name="Spider" type="CharacterBody2D"]
 collision_layer = 16
 collision_mask = 17
@@ -263,7 +269,21 @@ debug_color = Color(0.980392, 0.145098, 0, 0.129412)
 
 [node name="AttackController" parent="." instance=ExtResource("7_kd7h2")]
 
+[node name="Hitbox" parent="." instance=ExtResource("8_unouq")]
+collision_layer = 4
+collision_mask = 4
+damage = 3
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+scale = Vector2(0.608, 0.608)
+shape = SubResource("CapsuleShape2D_0jb8c")
+debug_color = Color(0.47451, 0.439216, 1, 0.419608)
+
+[node name="Stats" parent="." instance=ExtResource("9_gw5f7")]
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="no_health" from="Stats" to="." method="_on_stats_no_health"]
 
 [editable path="Hurtbox"]
 [editable path="PlayerDetectionZone"]
+[editable path="Hitbox"]

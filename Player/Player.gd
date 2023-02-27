@@ -15,6 +15,8 @@ var animationTree:AnimationTree = $AnimationTree
 var animationState = animationTree.get("parameters/playback")
 @onready
 var stats = $PlayerStats
+@onready
+var hurtbox = $Hurtbox
 
 func _ready():
 	stats.no_health.connect(_on_player_no_health)
@@ -45,8 +47,11 @@ func _physics_process(delta):
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta) 
 	
 	move_and_slide()
+	
 
 
 func _on_hurtbox_area_entered(area):
-	stats.health -= 1
+	stats.health -= area.damage
+	hurtbox.start_invincibility(1)
 	print("Player health = " + str(stats.health))
+	

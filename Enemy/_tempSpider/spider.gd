@@ -36,6 +36,8 @@ var playerDetectionZone = $PlayerDetectionZone
 var wanderController = $WanderController
 @onready
 var attackController = $AttackController
+@onready
+var stats = $Stats
 
 
 func _physics_process(delta):
@@ -103,8 +105,8 @@ func _physics_process(delta):
 				
 				attackController.set_target(player.global_position)
 				
-				if attackController.attackDone:
-					attackController.burst_attack(3, 300, 1, 0.1, 0)
+				#if attackController.attackDone:
+				#	 attackController.burst_attack(3, 300, 1, 0.1, 0)
 				
 			else:
 				state = IDLE
@@ -119,8 +121,9 @@ func seek_player():
 		state = CHASE
 	
 
-func _on_hurtbox_area_entered(_area):
-	# TODO: refactor with proper knockback logic
-	knockback = Vector2.RIGHT * 300
-	# queue_free()
- 
+func _on_hurtbox_area_entered(area):
+	stats.health -= area.damage
+	
+	
+func _on_stats_no_health():
+	queue_free()

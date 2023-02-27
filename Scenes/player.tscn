@@ -209,6 +209,7 @@ stream = ExtResource("3_2jicg")
 [node name="Hitbox" parent="." instance=ExtResource("4_155eh")]
 collision_layer = 9
 collision_mask = 9
+damage = 2
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 scale = Vector2(0.757, 0.757)

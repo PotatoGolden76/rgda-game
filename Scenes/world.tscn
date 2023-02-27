@@ -757,7 +757,6 @@ position = Vector2(776, 128)
 shape = SubResource("RectangleShape2D_2pl8d")
 
 [node name="Entities" type="Node2D" parent="."]
-y_sort_enabled = true
 
 [node name="Player" parent="Entities" instance=ExtResource("1_cexyo")]
 position = Vector2(288, 168)

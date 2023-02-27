@@ -5,3 +5,11 @@ res://Scenes/player.tscn
 res://Player/Player.gd
 res://Environment/Wall.gd
 res://Projectiles/_tempBullet/EnemyBullet.tscn
+res://Scenes/spider.tscn
+res://Enemy/_tempSpider/spider.gd
+res://Overlap/Hurtbox.tscn
+res://Overlap/Hurtbox.gd
+res://Enemy/EnemyStats.tscn
+res://Enemy/EnemyStats.gd
+res://Overlap/Hitbox.tscn
+res://Overlap/Hitbox.gd
