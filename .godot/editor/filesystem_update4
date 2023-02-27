@@ -1,4 +1,14 @@
 res://Scenes/world.tscn
+<<<<<<< HEAD
+res://Player/Inventory/Inventory.gd
+res://Items/DroppedItem.tscn
+res://Items/TestItem.tres
+res://Items/ItemRegistry.gd
+res://Items/Resources/TestItem_2.tres
+res://Items/DroppedItem.gd
+res://Scenes/Drops_TEST.gd
+res://Scenes/player.tscn
+=======
 res://Enemy/WanderController.gd
 res://Scenes/Wall.tscn
 res://Enemy/WanderController.tscn
@@ -13,3 +23,4 @@ res://Projectiles/_tempBullet/EnemyBullet.gd
 res://Enemy/AttackController.tscn
 res://Enemy/AttackController.gd
 res://Player/Player.gd
+>>>>>>> 3de29d24010c92cc11bc5a78342febb249e518a0
