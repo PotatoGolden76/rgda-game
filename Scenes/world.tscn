@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dr87sygi4uff2"]
+[gd_scene load_steps=21 format=3 uid="uid://dr87sygi4uff2"]
 
 [ext_resource type="Texture2D" uid="uid://cbn7k1is0u27l" path="res://Environment/_tempTileset/TX Tileset Grass.png" id="1_bj1nm"]
 [ext_resource type="PackedScene" uid="uid://c4w7dteo26vpo" path="res://Scenes/player.tscn" id="1_cexyo"]
@@ -698,10 +698,12 @@ size = Vector2(960, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2pl8d"]
 size = Vector2(16, 640)
 
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_bxe2t"]
+
 [node name="Manager" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(288, 168)
+position = Vector2(688, 336)
 process_callback = 0
 limit_left = -192
 limit_top = -192
@@ -723,22 +725,22 @@ layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 1, 131072, 0, 2, 196608,
 [node name="Tiles" type="TileMap" parent="World"]
 tile_set = SubResource("TileSet_56k1s")
 format = 2
-layer_0/tile_data = PackedInt32Array(196618, 393219, 0, 262154, 196611, 1, 327690, 196611, 1, 393226, 196611, 2, 393228, 196611, 2, 327692, 196611, 1, 196619, 65539, 3, 262156, 196611, 1, 196620, 458755, 0, 196617, 65539, 3, 196616, 65539, 3, 196615, 65539, 3, 196614, 3, 3, 196623, 3, 3, 393231, 3, 3, 393232, 65539, 3, 393233, 458755, 2, 327697, 196611, 1, 262161, 196611, 1, 196625, 458755, 0, 196624, 65539, 3)
+layer_0/tile_data = PackedInt32Array(917498, 327683, 2, 917499, 65539, 3, 917500, 65539, 3, 917501, 65539, 3, 917502, 65539, 3, 917503, 393219, 2, 851968, 65539, 3, 851969, 65539, 3, 851970, 65539, 3, 851971, 65539, 3, 851972, 65539, 3, 851973, 65539, 3, 851974, 65539, 3, 851975, 65539, 3, 851976, 65539, 3, 851977, 65539, 3, 851978, 65539, 3, 851979, 393219, 2, 851980, 65539, 3, 851981, 65539, 3, 851982, 65539, 3, 851983, 65539, 3, 851984, 65539, 3, 851985, 65539, 3, 851986, 65539, 3, 851987, 65539, 3, 851988, 65539, 3, 851989, 65539, 3, 851990, 65539, 3, 851991, 458755, 2, 786455, 196611, 1, 720919, 196611, 1, 655383, 196611, 1, 589847, 196611, 1, 524311, 196611, 1, 262167, 196611, 1, 196631, 196611, 1, 131095, 196611, 1, 65559, 196611, 1, 23, 196611, 1, -65513, 196611, 1, -131049, 196611, 0, -327657, 196611, 2, -393193, 458755, 0, -393194, 65539, 3, -393195, 65539, 3, -393196, 65539, 3, -393197, 65539, 3, -393198, 65539, 3, -393199, 65539, 3, -393200, 65539, 3, -393201, 65539, 3, -393202, 65539, 3, -393203, 65539, 3, -393204, 65539, 3, -393205, 65539, 3, -393206, 65539, 3, -393207, 65539, 3, -393208, 65539, 3, -393209, 65539, 3, -393212, 65539, 3, -393213, 65539, 3, -393214, 65539, 3, -393215, 65539, 3, -393216, 65539, 3, -327681, 65539, 3, -327682, 65539, 3, -327683, 65539, 3, -327684, 65539, 3, -327685, 65539, 3, -327686, 327683, 0, -262150, 196611, 1, -196614, 196611, 1, -131078, 196611, 1, -65542, 196611, 1, -6, 196611, 1, 65530, 196611, 1, 131066, 196611, 1, 196602, 196611, 1, 262138, 196611, 1, 327674, 196611, 1, 393210, 3, 1, 458746, 131075, 6, 589818, 196611, 1, 655354, 196611, 1, 720890, 196611, 1, 786426, 196611, 1, 851962, 196611, 1, 327702, 65539, 0, 327701, 65539, 7, 327700, 65539, 7, 327699, 65539, 0, 327698, 65539, 7, 327697, 65539, 0, 327696, 65539, 7, 327695, 65539, 7, 327694, 65539, 0, 327693, 65539, 0, 327692, 65539, 7, 327691, 131075, 7, 393227, 65539, 1, 393228, 65539, 1, 393229, 65539, 1, 393230, 65539, 1, 393231, 65539, 1, 393232, 65539, 1, 393233, 65539, 1, 393234, 65539, 1, 393235, 65539, 1, 393236, 65539, 1, 393237, 65539, 1, 393238, 65539, 1, 458774, 65539, 5, 458773, 65539, 5, 458772, 65539, 2, 458771, 65539, 2, 458770, 65539, 2, 458769, 65539, 2, 458768, 65539, 2, 458767, 65539, 2, 458766, 65539, 2, 458765, 65539, 5, 458764, 65539, 2, 458763, 65539, 2, 393239, 131075, 1, 458775, 3, 6, 327703, 3, 6, 524304, 196611, 1, 589840, 196611, 1, 655376, 196611, 2, 786443, 196611, 1, 720907, 196611, 1, 655371, 196611, 0, 458762, 65539, 5, 458761, 65539, 2, 458760, 65539, 2, 458759, 3, 2, 393226, 65539, 1, 393225, 65539, 1, 393224, 131075, 7, 393223, 3, 0, 327690, 65539, 0, 327689, 65539, 7, 327688, 3, 0, 458747, 65539, 1, 458748, 65539, 1, 458749, 65539, 1, 458750, 65539, 1, 458751, 65539, 1, 393216, 3, 7, 458752, 65539, 2, 524287, 65539, 5, 524286, 65539, 2, 524285, 65539, 5, 524284, 65539, 5, 524283, 65539, 5, 393211, 65539, 7, 393212, 65539, 7, 393213, 65539, 0, 393214, 65539, 0, 393215, 65539, 0, 327680, 131075, 0, 524282, 3, 1, 393217, 65539, 7, 458753, 65539, 5, 458754, 65539, 5, 458755, 131075, 2, 393219, 131075, 0, 393218, 65539, 0, 589823, 196611, 1, 655359, 196611, 2, 851967, 196611, 1, 786431, 196611, 0, 458758, 3, 3, 458756, 131075, 3, 196619, 196611, 1, 131083, 196611, 1, 65547, 196611, 1, 11, 458755, 1, -65525, 196611, 1, -131061, 196611, 1, -196597, 196611, 0, 262155, 196611, 1, 10, 65539, 3, 9, 65539, 3, 8, 65539, 3, 7, 65539, 3, 6, 65539, 3, 5, 65539, 3, 4, 65539, 3, 3, 65539, 3, 2, 65539, 3, 1, 65539, 3, 0, 65539, 3, 65535, 327683, 2, -1, 196611, 1, -65537, 196611, 1, -131073, 196611, 0, -327675, 3, 1, -262139, 131075, 6, -196603, 131075, 6, -131067, 3, 2, -131066, 131075, 2, -196602, 3, 6, -262138, 131075, 1, -327674, 131075, 1, -393211, 65539, 7, -393210, 65539, 0)
 
 [node name="Wall" parent="World" instance=ExtResource("2_dvyuv")]
-position = Vector2(160, 96)
+position = Vector2(-144, 144)
 
 [node name="Wall2" parent="World" instance=ExtResource("2_dvyuv")]
-position = Vector2(216, 168)
+position = Vector2(-48, 272)
 
 [node name="Wall3" parent="World" instance=ExtResource("2_dvyuv")]
-position = Vector2(224, 256)
+position = Vector2(304, 272)
 
 [node name="Wall4" parent="World" instance=ExtResource("2_dvyuv")]
-position = Vector2(456, 120)
+position = Vector2(400, 144)
 
 [node name="Wall5" parent="World" instance=ExtResource("2_dvyuv")]
-position = Vector2(456, 264)
+position = Vector2(400, 400)
 
 [node name="Bounds" type="StaticBody2D" parent="World"]
 
@@ -758,32 +760,62 @@ shape = SubResource("RectangleShape2D_hbisw")
 position = Vector2(776, 128)
 shape = SubResource("RectangleShape2D_2pl8d")
 
+[node name="Wall6" parent="World" instance=ExtResource("2_dvyuv")]
+position = Vector2(576, 0)
+
 [node name="Entities" type="Node2D" parent="."]
 
 [node name="Player" parent="Entities" instance=ExtResource("1_cexyo")]
-position = Vector2(288, 168)
+position = Vector2(688, 336)
+
+[node name="CollisionShape2D" parent="Entities/Player" index="1"]
+metadata/_edit_group_ = true
+
+[node name="AnimationTree" parent="Entities/Player" index="3"]
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_bxe2t")
+
+[node name="Hitbox" parent="Entities/Player" index="5"]
+metadata/_edit_group_ = true
+
+[node name="Hurtbox" parent="Entities/Player" index="6"]
+metadata/_edit_group_ = true
+
+[node name="PlayerStats" parent="Entities/Player" index="7"]
+metadata/_edit_group_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Entities/Player"]
 remote_path = NodePath("../../../Camera2D")
+metadata/_edit_group_ = true
 
-[node name="SpiderBoss" parent="Entities" instance=ExtResource("3_p010n")]
-position = Vector2(24, 176)
-scale = Vector2(2, 2)
+[node name="Spider" parent="Entities" instance=ExtResource("3_p010n")]
+position = Vector2(488, 376)
 
 [node name="Spider2" parent="Entities" instance=ExtResource("3_p010n")]
-position = Vector2(496, 56)
-scale = Vector2(2, 2)
+position = Vector2(144, 336)
 
 [node name="Spider3" parent="Entities" instance=ExtResource("3_p010n")]
-position = Vector2(240, -16)
-scale = Vector2(2, 2)
+position = Vector2(-112, 336)
 
 [node name="Spider4" parent="Entities" instance=ExtResource("3_p010n")]
-position = Vector2(512, 280)
-scale = Vector2(2, 2)
+position = Vector2(-24, 80)
 
-[node name="Spider5" parent="Entities" instance=ExtResource("6_qqls7")]
-position = Vector2(-48, -56)
+[node name="Spider5" parent="Entities" instance=ExtResource("3_p010n")]
+position = Vector2(272, 64)
+
+[node name="Spider6" parent="Entities" instance=ExtResource("3_p010n")]
+position = Vector2(80, -120)
+
+[node name="Spider7" parent="Entities" instance=ExtResource("3_p010n")]
+position = Vector2(504, -88)
+
+[node name="SpiderBoss" parent="Entities" instance=ExtResource("6_qqls7")]
+position = Vector2(672, 32)
 
 [node name="DropTest" type="Node2D" parent="."]
+visible = false
 script = ExtResource("6_wjwuo")
+
+[editable path="Entities/Player"]
+[editable path="Entities/Player/Hitbox"]
+[editable path="Entities/Player/Hurtbox"]
+[editable path="Entities/Player/AttackController"]

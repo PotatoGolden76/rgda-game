@@ -12,3 +12,5 @@ res://Scenes/SpiderBoss.tscn
 res://Enemy/_tempSpider/SpiderBoss.gd
 res://Enemy/_tempSpider/spider.gd
 res://Enemy/AttackController.gd
+res://Enemy/EnemyStats.tscn
+res://Enemy/EnemyStats.gd

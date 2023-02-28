@@ -148,7 +148,9 @@ func _physics_process(delta):
 						
 						SPIRAL:
 							attack = BIGBURST
-
+				
+			else:
+				state = IDLE
 	
 	sprite.flip_h = velocity.x < 0 || last_direction.x < 0
 	move_and_slide()

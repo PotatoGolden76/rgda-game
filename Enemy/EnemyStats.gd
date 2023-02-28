@@ -1,7 +1,7 @@
 extends Node
 
 @export
-var maxHealth = 3
+var maxHealth = 5
 var health = maxHealth: set = set_health
 @export
 var meleeDamage = 3
