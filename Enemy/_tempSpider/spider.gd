@@ -105,8 +105,8 @@ func _physics_process(delta):
 				
 				attackController.set_target(player.global_position)
 				
-				#if attackController.attackDone:
-				#	 attackController.burst_attack(3, 300, 1, 0.1, 0)
+				if attackController.attackDone:
+					attackController.burst_attack(3, 300, 1, 0.1, 0)
 				
 			else:
 				state = IDLE
