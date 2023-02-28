@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dvftcwox6iu6y"]
+
+[ext_resource type="Script" path="res://Items/Item.gd" id="1_cl2ex"]
+[ext_resource type="Texture2D" uid="uid://ckrs7n53s3xkt" path="res://Items/Placeholders/tile_0021.png" id="2_kian0"]
+
+[resource]
+script = ExtResource("1_cl2ex")
+name = "M'Dick"
+texture = ExtResource("2_kian0")
