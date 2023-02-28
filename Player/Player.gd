@@ -6,6 +6,8 @@ var damage = 1
 @export
 var speed:float = 200
 @export
+var dash_speed:float = 400
+@export
 var friction:float = 2500
 @export
 var acceleration:float = 3000
@@ -21,6 +23,11 @@ var stats = $PlayerStats
 var hurtbox = $Hurtbox
 @onready
 var attackController = $AttackController
+@onready
+var dashTimer = $DashController/DashTimer
+@onready
+var dashCooldown = $DashController/DashCooldownTimer
+
 
 enum {
 	MOVE,
@@ -32,7 +39,12 @@ var state = MOVE
 var is_attacking:bool = false
 var is_dashing:bool = false
 var input_vector:Vector2 = Vector2.ZERO
-
+var last_nonzero_input_vector:Vector2 = Vector2.DOWN
+var dash_vector:Vector2 = Vector2.DOWN
+@export
+var dash_time:float = 1
+@export
+var dash_length:float = 0.15
 
 func _ready():
 	stats.no_health.connect(_on_player_no_health)
@@ -47,6 +59,8 @@ func process_input():
 	input_vector.y = Input.get_action_strength("down") - Input.get_action_strength("up")
 	input_vector = input_vector.normalized()
 	
+	dash_vector = last_nonzero_input_vector
+	
 	is_attacking = Input.is_action_pressed("attack")
 	is_dashing = Input.is_action_just_pressed("dash")
 
@@ -56,18 +70,28 @@ func move_state(delta):
 		if not $FootstepSFX.is_playing():
 			$FootstepSFX.play(0)
 			
+		last_nonzero_input_vector = input_vector
 		velocity = velocity.move_toward(input_vector * speed, acceleration * delta) 
 	
 	else:
 		$FootstepSFX.stop()
-		velocity = velocity.move_toward(Vector2.ZERO, friction * delta) 
+		velocity = velocity.move_toward(Vector2.ZERO, friction * delta) 	
 	
-	move_and_slide()
+
+func dash_state(delta):
+	if dashTimer.time_left == 0:
+		velocity = dash_vector * dash_speed
+		dashTimer.start(dash_length)
+		hurtbox.start_invincibility(dash_length)
+		
+		await dashTimer.timeout
+		
+		velocity = input_vector
+		state = MOVE
 	
 
 func attack():
 	attackController.set_target(get_global_mouse_position())
-	# attackController.knockback_vector = input_vector
 	
 	if attackController.attackDone:
 		attackController.burst_attack(1, 350, 0, 0.07, 0)
@@ -98,8 +122,10 @@ func process_animations():
 func _physics_process(delta):
 	process_input()
 	process_animations()
+	# print(dashCooldown.time_left)
 	
-	if is_dashing:
+	if is_dashing && dashCooldown.time_left == 0:
+		dashCooldown.start(dash_time)
 		state = DASH
 	
 	match state:
@@ -110,9 +136,9 @@ func _physics_process(delta):
 			move_state(delta)
 			
 		DASH:
-			pass
-
+			dash_state(delta)
 	
+	move_and_slide()
 
 func _on_hurtbox_area_entered(area):
 	print("hit")
@@ -120,3 +146,4 @@ func _on_hurtbox_area_entered(area):
 	hurtbox.start_invincibility(1)
 	print("Player health = " + str(stats.health))
 	
+

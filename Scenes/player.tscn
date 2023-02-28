@@ -314,6 +314,7 @@ height = 16.0
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_sjwxk")
+dash_time = 0.75
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -371,6 +372,15 @@ EnemyBullet = ExtResource("9_uqdch")
 
 [node name="Timer" parent="AttackController" index="0"]
 wait_time = 0.05
+
+[node name="DashController" type="Node" parent="."]
+
+[node name="DashTimer" type="Timer" parent="DashController"]
+wait_time = 0.1
+one_shot = true
+
+[node name="DashCooldownTimer" type="Timer" parent="DashController"]
+one_shot = true
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 
