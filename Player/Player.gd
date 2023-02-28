@@ -19,6 +19,8 @@ var animationState = animationTree.get("parameters/playback")
 var stats = $PlayerStats
 @onready
 var hurtbox = $Hurtbox
+@onready
+var attackController = $AttackController
 
 enum {
 	MOVE,
@@ -63,30 +65,34 @@ func move_state(delta):
 	move_and_slide()
 	
 
-func attack(delta):
-	#print("attacked")
-	pass
+func attack():
+	attackController.set_target(get_global_mouse_position())
+	# attackController.knockback_vector = input_vector
+	
+	if attackController.attackDone:
+		attackController.burst_attack(1, 350, 0, 0.07, 0)
+	
 
 func process_animations():
 	if input_vector == Vector2.ZERO:
 		if is_attacking:
 			animationState.travel("IdleAttack")
-			print("IdleAttack")
+			# print("IdleAttack")
 		
 		else:
 			animationState.travel("Idle")
-			print("Idle")
+			# print("Idle")
 	
 	else:
 		if is_attacking:
 			animationTree.set("parameters/Attack/blend_position", input_vector)
 			animationState.travel("Attack")
-			print("Attack")
+			# print("Attack")
 		
 		else:
 			animationTree.set("parameters/Run/blend_position", input_vector)
 			animationState.travel("Run")
-			print("Run")
+			# print("Run")
 	
 
 func _physics_process(delta):
@@ -99,7 +105,7 @@ func _physics_process(delta):
 	match state:
 		MOVE:
 			if is_attacking:
-				attack(delta)
+				attack()
 				
 			move_state(delta)
 			

@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://c4w7dteo26vpo"]
+[gd_scene load_steps=52 format=3 uid="uid://c4w7dteo26vpo"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_sjwxk"]
 [ext_resource type="Texture2D" uid="uid://cw6g1y2b7622r" path="res://Player/_tempSpritesheet.png" id="2_f6qyg"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://cgt1nf5dr404j" path="res://Overlap/Hitbox.tscn" id="4_155eh"]
 [ext_resource type="PackedScene" uid="uid://cn8qgbs33xrk3" path="res://Overlap/Hurtbox.tscn" id="5_nojkx"]
 [ext_resource type="Script" path="res://Player/PlayerStats.gd" id="6_jko07"]
+[ext_resource type="PackedScene" uid="uid://m4plp0p7bul0" path="res://Enemy/AttackController.tscn" id="7_gqjiv"]
+[ext_resource type="Script" path="res://Player/PlayerAttackController.gd" id="8_i37rr"]
+[ext_resource type="PackedScene" uid="uid://b65tttnfpxo0k" path="res://Projectiles/_tempBulletPlayer/PlayerBullet.tscn" id="9_uqdch"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nb1l7"]
 radius = 6.0
@@ -341,13 +344,15 @@ parameters/Run/blend_position = Vector2(-0.8704, 0.677293)
 stream = ExtResource("3_2jicg")
 
 [node name="Hitbox" parent="." instance=ExtResource("4_155eh")]
-collision_layer = 8
+visible = false
+collision_layer = 0
 collision_mask = 0
 damage = 2
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 scale = Vector2(0.757, 0.757)
 shape = SubResource("CapsuleShape2D_238b6")
+disabled = true
 
 [node name="Hurtbox" parent="." instance=ExtResource("5_nojkx")]
 collision_layer = 4
@@ -360,7 +365,15 @@ debug_color = Color(0.568627, 0.388235, 1, 0.419608)
 [node name="PlayerStats" type="Node2D" parent="."]
 script = ExtResource("6_jko07")
 
+[node name="AttackController" parent="." instance=ExtResource("7_gqjiv")]
+script = ExtResource("8_i37rr")
+EnemyBullet = ExtResource("9_uqdch")
+
+[node name="Timer" parent="AttackController" index="0"]
+wait_time = 0.05
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 
 [editable path="Hitbox"]
 [editable path="Hurtbox"]
+[editable path="AttackController"]

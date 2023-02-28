@@ -8,3 +8,7 @@ res://Enemy/_tempSpider/spider.gd
 res://Projectiles/_tempBullet/EnemyBullet.tscn
 res://Player/Player.gd
 res://Projectiles/_tempBullet/EnemyBullet.gd
+res://Projectiles/_tempBulletPlayer/PlayerBullet.tscn
+res://Projectiles/_tempBulletPlayer/PlayerBullet.gd
+res://Enemy/AttackController.gd
+res://Player/PlayerAttackController.gd
