@@ -7,3 +7,4 @@ res://Scenes/Drops_TEST.gd
 res://Items/ItemRegistry.gd
 res://Items/Resources/TestItem.tres
 res://Items/Resources/TestItem_2.tres
+res://Projectiles/_tempBulletPlayer/PlayerBullet.tscn

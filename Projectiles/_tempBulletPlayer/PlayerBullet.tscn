@@ -62,7 +62,8 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_7a4q7")
-frame_progress = 0.734592
+autoplay = "default"
+frame_progress = 0.62475
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." index="2"]
 
