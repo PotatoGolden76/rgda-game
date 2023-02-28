@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://dr87sygi4uff2"]
+[gd_scene load_steps=20 format=3 uid="uid://dr87sygi4uff2"]
 
 [ext_resource type="Texture2D" uid="uid://cbn7k1is0u27l" path="res://Environment/_tempTileset/TX Tileset Grass.png" id="1_bj1nm"]
 [ext_resource type="PackedScene" uid="uid://c4w7dteo26vpo" path="res://Scenes/player.tscn" id="1_cexyo"]
 [ext_resource type="PackedScene" uid="uid://cde1h37a8ikyw" path="res://Scenes/Wall.tscn" id="2_dvyuv"]
 [ext_resource type="Texture2D" uid="uid://6nkecr1gsq70" path="res://Environment/_tempTileset/TX Tileset Stone Ground.png" id="2_svdgq"]
 [ext_resource type="PackedScene" uid="uid://devyfl4lqc1f3" path="res://Scenes/spider.tscn" id="3_p010n"]
+[ext_resource type="PackedScene" uid="uid://cb5sera6kt3r" path="res://Scenes/SpiderBoss.tscn" id="6_qqls7"]
 [ext_resource type="Script" path="res://Scenes/Drops_TEST.gd" id="6_wjwuo"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_bsodx"]
@@ -765,7 +766,7 @@ position = Vector2(288, 168)
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Entities/Player"]
 remote_path = NodePath("../../../Camera2D")
 
-[node name="Spider" parent="Entities" instance=ExtResource("3_p010n")]
+[node name="SpiderBoss" parent="Entities" instance=ExtResource("3_p010n")]
 position = Vector2(24, 176)
 scale = Vector2(2, 2)
 
@@ -780,6 +781,9 @@ scale = Vector2(2, 2)
 [node name="Spider4" parent="Entities" instance=ExtResource("3_p010n")]
 position = Vector2(512, 280)
 scale = Vector2(2, 2)
+
+[node name="Spider5" parent="Entities" instance=ExtResource("6_qqls7")]
+position = Vector2(-48, -56)
 
 [node name="DropTest" type="Node2D" parent="."]
 script = ExtResource("6_wjwuo")

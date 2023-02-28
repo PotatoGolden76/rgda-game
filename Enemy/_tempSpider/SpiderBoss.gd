@@ -25,6 +25,16 @@ enum {
 	CHASE
 }
 
+enum {
+	BIGBURST,
+	SPREAD,
+	SMALLBURST,
+	CIRCLE,
+	SPIRAL
+}
+
+var attack = BIGBURST
+
 var state = IDLE
 var last_direction = Vector2.ZERO
 @onready
@@ -43,6 +53,11 @@ var wanderController = $WanderController
 var attackController = $AttackController
 @onready
 var stats = $Stats
+var repeat = 3
+
+func _ready():
+	stats.health = 40
+
 
 func _physics_process(delta):
 	# TODO: refactor knockback logic when a proper player attack system is implemented
@@ -110,10 +125,30 @@ func _physics_process(delta):
 				attackController.set_target(player.global_position)
 				
 				if attackController.attackDone:
-					attackController.burst_attack(3, 300, 1, 0.1, 0)
-				
-			else:
-				state = IDLE
+					match attack:
+						BIGBURST:
+							attackController.burst_attack(10, 300, 0.5, 0.1, 0)
+							attack = SPREAD
+						
+						SPREAD:
+							attackController.spread_attack(5, 3, 300, 0.5, 0.1, 0)
+							attack = SMALLBURST
+						
+						SMALLBURST:
+							attackController.burst_attack(5, 500, 0.5, 0.05, 0)
+							repeat -= 1
+							
+							if repeat == 0:
+								attack = CIRCLE
+								repeat = 3
+						
+						CIRCLE:
+							attackController.circle_attack(12, 2, 300, 0.5, 0.2, 0.5)
+							attack = SPIRAL
+						
+						SPIRAL:
+							attack = BIGBURST
+
 	
 	sprite.flip_h = velocity.x < 0 || last_direction.x < 0
 	move_and_slide()

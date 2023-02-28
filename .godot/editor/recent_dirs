@@ -1,3 +1,4 @@
+res://Enemy/_tempSpider
 res://Player/Inventory
 res://Items
 res://Scenes
@@ -6,4 +7,3 @@ res://Player
 res://Overlap
 res://Enemy
 res://Projectiles/_tempBullet
-res://Enemy/_tempSpider
