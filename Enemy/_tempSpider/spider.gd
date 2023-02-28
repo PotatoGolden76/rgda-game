@@ -14,6 +14,11 @@ var CHASE_MAX_SPEED:float = 4000
 @export
 var WANDER_MAX_SPEED:float = 1000
 
+@export
+var melee_damage:int = 2
+@export
+var bullet_damage:int = 1
+
 enum {
 	IDLE, 
 	WANDER,
@@ -36,6 +41,8 @@ var playerDetectionZone = $PlayerDetectionZone
 var wanderController = $WanderController
 @onready
 var attackController = $AttackController
+@onready
+var stats = $Stats
 
 
 func _physics_process(delta):
@@ -119,8 +126,10 @@ func seek_player():
 		state = CHASE
 	
 
-func _on_hurtbox_area_entered(_area):
-	# TODO: refactor with proper knockback logic
-	knockback = Vector2.RIGHT * 300
-	# queue_free()
- 
+func _on_hurtbox_area_entered(area):
+	stats.health -= area.damage
+	knockback = area.knockback_vector * 100
+	
+	
+func _on_stats_no_health():
+	queue_free()

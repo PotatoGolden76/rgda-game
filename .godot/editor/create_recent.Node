@@ -1,29 +1,17 @@
-Node2D
-<<<<<<< HEAD
-Label
-CollisionShape2D
-Area2D
-Sprite2D
-=======
+Node
 Timer
 VisibleOnScreenNotifier2D
+Marker2D
+Node2D
 AnimatedSprite2D
 CollisionShape2D
 Sprite2D
 CharacterBody2D
-Node
 Area2D
 AnimationTree
 AnimationPlayer
->>>>>>> 3de29d24010c92cc11bc5a78342febb249e518a0
 StaticBody2D
 RemoteTransform2D
 Camera2D
 AudioStreamPlayer
 TileMap
-<<<<<<< HEAD
-AnimationTree
-AnimationPlayer
-CharacterBody2D
-=======
->>>>>>> 3de29d24010c92cc11bc5a78342febb249e518a0

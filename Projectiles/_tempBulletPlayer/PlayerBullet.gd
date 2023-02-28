@@ -4,6 +4,10 @@ extends Area2D
 var SPEED:int = 300
 @export
 var damage:int = 1
+var knockback_vector = Vector2.ZERO : set = set_kb_vector
+
+func set_kb_vector(value):
+	knockback_vector = value
 
 func set_speed(new_speed):
 	SPEED = new_speed

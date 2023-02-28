@@ -1,11 +1,7 @@
-<<<<<<< HEAD
-res://Items/Resources
-res://Items
-res://Player/Inventory
-=======
+res://Projectiles/_tempBulletPlayer
+res://Player
+res://Overlap
 res://Enemy
 res://Projectiles/_tempBullet
-res://Overlap
 res://Enemy/_tempSpider
->>>>>>> 3de29d24010c92cc11bc5a78342febb249e518a0
 res://Scenes
