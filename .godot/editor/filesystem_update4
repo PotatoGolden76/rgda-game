@@ -2,3 +2,8 @@ res://Scenes/world.tscn
 res://Enemy/WanderController.gd
 res://Scenes/player.tscn
 res://Scenes/spider.tscn
+res://Items/DroppedItem.tscn
+res://Scenes/Drops_TEST.gd
+res://Items/ItemRegistry.gd
+res://Items/Resources/TestItem.tres
+res://Items/Resources/TestItem_2.tres

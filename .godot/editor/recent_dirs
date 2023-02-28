@@ -1,7 +1,9 @@
+res://Player/Inventory
+res://Items
+res://Scenes
 res://Projectiles/_tempBulletPlayer
 res://Player
 res://Overlap
 res://Enemy
 res://Projectiles/_tempBullet
 res://Enemy/_tempSpider
-res://Scenes
