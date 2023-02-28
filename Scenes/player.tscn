@@ -1,9 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://c4w7dteo26vpo"]
+[gd_scene load_steps=22 format=3 uid="uid://c4w7dteo26vpo"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_sjwxk"]
 [ext_resource type="Texture2D" uid="uid://cw6g1y2b7622r" path="res://Player/_tempSpritesheet.png" id="2_f6qyg"]
 [ext_resource type="AudioStream" uid="uid://bmio6bonkf1wf" path="res://SFX/running-in-grass-6237.mp3" id="3_2jicg"]
-[ext_resource type="PackedScene" uid="uid://cgt1nf5dr404j" path="res://Overlap/Hitbox.tscn" id="4_155eh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nb1l7"]
 radius = 6.0
@@ -109,6 +108,17 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FootstepSFX")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [],
+"times": PackedFloat32Array()
+}
+tracks/1/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nffgw"]
 _data = {
@@ -164,12 +174,7 @@ graph_offset = Vector2(8, -51.057)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_jsooj"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_238b6"]
-radius = 8.0
-height = 32.0
-
 [node name="Player" type="CharacterBody2D"]
-collision_layer = 2
 script = ExtResource("1_sjwxk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -199,13 +204,3 @@ parameters/Run/blend_position = Vector2(-0.8704, 0.677293)
 
 [node name="FootstepSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_2jicg")
-
-[node name="Hitbox" parent="." instance=ExtResource("4_155eh")]
-collision_layer = 9
-collision_mask = 9
-
-[node name="CollisionShape2D" parent="Hitbox" index="0"]
-scale = Vector2(0.757, 0.757)
-shape = SubResource("CapsuleShape2D_238b6")
-
-[editable path="Hitbox"]
